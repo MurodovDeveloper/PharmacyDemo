@@ -6,13 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Domain;
+
+public static class RegisterService
 {
-    public static class RegisterService
+    public static IServiceCollection AddDomainServices(this IServiceCollection services, IConfiguration configuration)
     {
-        public static IServiceCollection AddUIServices(this IServiceCollection services, IConfiguration configuration)
-        {
-            return services;
-        }
+        return services;
     }
 }

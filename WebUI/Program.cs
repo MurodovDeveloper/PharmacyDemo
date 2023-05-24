@@ -9,7 +9,6 @@ namespace WebUI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-
             builder.Services.AddUIServices(builder.Configuration);
             builder.Services.AddDomainServices(builder.Configuration);
             builder.Services.AddApplicationServices(builder.Configuration);
