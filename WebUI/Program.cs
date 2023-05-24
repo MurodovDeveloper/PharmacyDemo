@@ -1,4 +1,6 @@
-
+using Domain;
+using Application;
+using Infrastructure;
 namespace WebUI
 {
     public class Program
@@ -7,16 +9,15 @@ namespace WebUI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
 
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddUIServices(builder.Configuration);
+            builder.Services.AddDomainServices(builder.Configuration);
+            builder.Services.AddApplicationServices(builder.Configuration);
+            builder.Services.AddInfrastructureServices(builder.Configuration);
+
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
