@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure.DataAcces
+namespace Application.DTOs.Users
 {
-    internal class AppDbContext
+    public class UserBaseDTO
     {
+        public Guid Id { get; set; }
     }
 }

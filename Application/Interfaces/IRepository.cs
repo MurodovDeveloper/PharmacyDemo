@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq.Expressions;
 
-namespace Application.Interfaces
+namespace Application.Interfaces;
+
+public interface IRepository<T> where T : class
 {
-    public interface IRepository<T> where T : class
-    {
-        Task<ICollection<T>> Get(Expression<Func<T, bool>> expression);
-        Task<T> CreateAsync(T entity);
-        Task<bool> UpdateAsync(T entity);
-        Task<bool> DeleteAsync(Guid Id);
-
-    }
+    Task<List<T>> GetAll(Expression<Func<T, bool>> expression);
+    Task<T> Get(Guid Id);
+    Task<T> AddAsync(T entity);
+    //Task<T> CreateAsync(T entity);
+    Task<ICollection<T>> AddRangeAsync(ICollection<T> entities);
+    Task<bool> UpdateAsync(T entity);
+    Task<bool> DeleteAsync(T entity);
 }

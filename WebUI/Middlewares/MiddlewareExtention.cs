@@ -1,6 +1,12 @@
-﻿namespace WebUI.Middlewares
+﻿using Pharmacy.Middlewares;
+
+namespace WebUI.Middlewares
 {
-    public class MiddlewareExtention
+    public static class MiddlewareExtention
     {
+        public static void UseExeptionHandling(this WebApplication app)
+        {
+            app.UseMiddleware<GlobalExeptionHendler>();
+        }
     }
 }

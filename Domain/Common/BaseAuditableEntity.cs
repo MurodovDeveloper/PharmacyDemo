@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Common
+﻿namespace Domain.Common;
+public class BaseAuditableEntity : BaseEntity
 {
-    public class BaseAuditableEntity
-    {
-    }
+    public DateTime Created { get; set; }
+    public DateTime Lasted { get; set; }
+    public string CreatedBy { get; set; } = "";
+    public string LastedBy { get; set; } = "";
 }
