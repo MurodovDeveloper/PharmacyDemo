@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "OLpiBfolb/ozR2aGmXwQdTvcjpx6sDFpMe1W5Rp22tGZA16xQd6jSL8SbKU6gD0XKT8kVb61qKgfFGcmwKC80Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\murod\\OneDrive\\Desktop\\PharmacyManagment\\Domain\\Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\murod\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\murod\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\murod\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

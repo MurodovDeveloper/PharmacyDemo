@@ -9,10 +9,8 @@ using Domain.Tokens;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
 using Pharmacy.Filters;
 using Serilog;
-using SolrNet.Utils;
 
 namespace Pharmacy.Controllers
 {
@@ -58,7 +56,7 @@ namespace Pharmacy.Controllers
         public async Task<ActionResult<ResponseCore<Token>>> LoginUser([FromBody] UserCredential userCredential)
         {
             userCredential.Password = userCredential.Password.stringHash()!;
-            User? user = (await _userService.GetAll(x => true)).FirstOrDefault(x =>x.Password == userCredential.Password);
+            User? user = (await _userService.GetAll(x => true)).FirstOrDefault(x => x.Password == userCredential.Password);
             Log.Warning("This is Warning!");
             if (user == null)
             {
@@ -84,11 +82,11 @@ namespace Pharmacy.Controllers
             }
             RefreshToken? savedrefreshToken = _tokenService.Get(x => x.Username == username &&
                                                                 x.RefreshTokenValue == tokens.RefreshToken).FirstOrDefault();
-            if(savedrefreshToken == null)
+            if (savedrefreshToken == null)
             {
                 return BadRequest("Refresh token or Acces token invalid");
             }
-            if(savedrefreshToken.ExpiredDate<DateTime.UtcNow) 
+            if (savedrefreshToken.ExpiredDate < DateTime.UtcNow)
             {
 
                 _tokenService.Delete(savedrefreshToken);
@@ -98,6 +96,18 @@ namespace Pharmacy.Controllers
 
             return Ok(newTokens);
         }
+
+        //[HttpPost]
+        //[AllowAnonymous]
+        //[Route("Logger")]
+        //[ValidateModel]
+        //public async Task<IActionResult> Logger([FromBody] UserCredential credential)
+        //{
+        //    _diagnosticContext.Set("CatalogLoadTime", 1423);
+        //    Log.Debug("this is LogDebug");
+        //    await _userRepository.GetAllAsync();
+        //    return Ok();
+        //}
     }
 }
 
